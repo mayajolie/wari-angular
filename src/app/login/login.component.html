@@ -1,0 +1,25 @@
+<div class="card body" style="margin-left: 35%;margin-right: 35%;margin-top:2%;border-radius:24px 12px 24px 12px">
+  <h2 class="btn-primary float-center" style="text-align: center;border-radius:24px 12px 24px 12px">Authentification</h2>
+<form #f="ngForm" (ngSubmit)="onLogin(f.value )" style="margin-left: 32%">
+
+  <h5 *ngIf="success"></h5>
+
+  <label for="login_field" >
+    Username:
+    <input type="text" name="username" ngModel class="form-control form-contol input-block">
+    
+  </label>
+
+  <label  >
+    Password:
+    <input type="password" name="password" ngModel class="form-control form-contol input-block">
+    
+  </label>
+
+  <input type="submit" value="Se connecter" class="cta btn-primary float-right"    style="margin-left: 30%;margin-right: 30%;margin-top:2%;margin-bottom:5%" >
+
+</form>
+
+<div *ngIf="submitted" class="results" style="margin-top:1%">
+</div>
+</div>

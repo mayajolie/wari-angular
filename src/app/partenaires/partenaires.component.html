@@ -1,0 +1,85 @@
+<section class="page-section clearfix">
+  <div class="container">
+      <div class="d-flex justify-content-center h-10">
+          <div class="card" id="mj">
+              <div class="card-header">
+                  <h3 >Ajouter Partenaire:</h3>
+              </div>
+              <div class="card-body">
+              <form action="ajout-apprenant.php" method="POST" class="bs-example">
+                            <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                              <span class="input-group-text">Nom</span>
+                      </div> 
+                          <input type="text" name="nom" placeholder="Nom" size="20" required/>
+                      </div>
+                      <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Prenom</span>
+                        </div> 
+                          <input type="text" name="prenom"  placeholder="Prenom" size="20" required/>
+                      </div>
+                      <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">Date de Naissance</span>
+                          </div> 
+                              <input type="date" name="date"  placeholder="Date de Naissance" required/>
+                      </div>
+                      <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Telephone</span>
+                            </div> 
+                            <input type="number" name="number"  placeholder="Numero Telephone" required />
+                        </div>
+                        <div class="input-group form-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Email</span>
+                            </div> 
+                              <input type="email" name="addresse"  placeholder="@"  required />
+                      </div>
+                      
+                        <div class="form-group">
+                          <input type="submit" value="AJOUTER"  name="ajouter"/>
+                          </div>     
+                </form>
+              </div>
+          </div>
+     </div>
+  </div>
+</section>
+<h1>Liste des partenaires</h1>
+<div>
+
+  <table #dataTable class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>NINEA</th>
+            <th>Raison Social</th>
+            <th>Adrssee</th>
+            <th>Telephone</th>
+            <th>Etat</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let partenaire of Partenaires">
+        <td>{{ partenaire.id }}</td>
+        <td>{{ partenaire.ninea }}</td>
+        <td>{{ partenaire.raisonSocial }}</td>
+        <td>{{ partenaire.adresse }}</td>
+        <td>{{ partenaire.telephone }}</td>
+        <td>{{ partenaire.etat }}</td>
+      </tr>
+    
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+    </tfoot>
+</table>
