@@ -1,0 +1,111 @@
+<section class="forms">
+  <div class="container-fluid">
+    <!-- Page Header-->
+    <header> 
+      <h1 class="h3 display">Forms            </h1>
+    </header>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header d-flex align-items-center">
+            <h4>Basic Form</h4>
+          </div>
+          <div class="card-body">
+              <p>Information de L'Admin du Partenaire.</p>
+            
+            <form #ajout="ngForm" (ngSubmit)="registreUser(ajout.value )">
+              <div class="card">
+
+                <div class="col-lg-6" >
+                <div class="form-group">
+                  <label>Nom</label>
+                  <input type="text" ngModel name="nom"  placeholder="Nom" class="form-control">
+                </div>
+                <div class="form-group">       
+                    <label>Prenom</label>
+                    <input type="text" ngModel name="prenom"  placeholder="Prenom" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" ngModel name="email"  placeholder="Adresse Email" class="form-control">
+                  </div>
+                <div class="form-group">       
+                  <label>Telephone</label>
+                  <input type="number" ngModel name="telephone"  placeholder="Telephone" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Adresse</label>
+                  <input type="text" name="adresse"  ngModel placeholder="Adresse" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Profil</label>
+                  <select name="profil"  ngModel>
+                    <option value="1">Admin Partenaire</option>
+                    <option value="2">Caisier</option>
+                    <option value="3">Utilisateur</option>
+                </select>
+                </div>
+                <div class="form-group">       
+                    <label>Username</label>
+                    <input type="text" name="username" ngModel placeholder="Username" class="form-control">
+                  </div>
+                <div class="form-group">       
+                  <label>Password</label>
+                  <input type="password" name="plainPassword" ngModel class="form-control form-contol">
+                </div>
+                <div class="form-group">       
+                    <img [src]="imageUrl"alt="" style="width: 200px;height:200px">
+                    <input type="file" ngModel name="imageName" >
+                  </div>
+              </div>
+              <div class="form-group">       
+                  <input type="submit" value="Signin" class="btn btn-primary">
+                </div>
+            </div> 
+              
+            </form>
+          </div>
+        </div>
+      </div>
+      <section>
+      <div>
+          <h1>Liste des utilisateur</h1>
+      </div>
+<div>
+
+  <table #dataTable class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>NINEA</th>
+            <th>Raison Social</th>
+            <th>Adrssee</th>
+            <th>Telephone</th>
+            <th>Etat</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let utilisateur of Utilisateur">
+        <td>{{ utilisateur.id }}</td>
+        <td>{{ utilisateur.nom }}</td>
+        <td>{{ utilisateur.prenom }}</td>
+        <td>{{ utilisateur.adresse }}</td>
+        <td>{{ utilisateur.telephone }}</td>
+        <td>{{ utilisateur.etat }}</td>
+      </tr>
+    
+    </tbody>
+    <tfoot>
+      <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+      </tr>
+  </tfoot>
+ 
+</table>
+</div>
+</section>

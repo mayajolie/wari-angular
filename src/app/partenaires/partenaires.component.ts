@@ -14,8 +14,9 @@ export class PartenairesComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-      this.dataTable = $(this.table.nativeElement);
-      this.dataTable.DataTable();
+     
+    this.dataTable = $(this.table.nativeElement);
+    this.dataTable.DataTable(this.Partenaires);
      this.apiService.getPartenaire()
         .subscribe(
          res=>this.Partenaires=res,

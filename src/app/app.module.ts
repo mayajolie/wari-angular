@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PartenairesComponent } from './partenaires/partenaires.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PartenairesComponent,
+    UtilisateurComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

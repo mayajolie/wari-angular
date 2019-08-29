@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("/partenaire")  
       }
       if (this.isAdminPart()) {
-        this.router.navigateByUrl("/registre")  
+        this.router.navigateByUrl("/utilisateur")  
       }
       console.log(resp);
 
