@@ -1,0 +1,23 @@
+<div class="card body" style="margin-left: 35%;margin-right: 35%;margin-top:2%;border-radius:24px 12px 24px 12px">
+  <h2 class="btn-primary float-center" style="text-align: center;border-radius:24px 12px 24px 12px">Depot</h2>
+<form #f="ngForm" (ngSubmit)="depot(f.value )" style="margin-left: 32%">
+
+  <h5 *ngIf="success"></h5>
+  <label  >
+    Numero de compte
+      <input type="number" name="Numero" ngModel class="form-control form-contol input-block">
+      
+    </label>
+  <label for="login_field" >
+    Montant
+    <input type="number" name="montant" ngModel class="form-control form-contol input-block">
+    
+  </label>
+
+
+
+  <input type="submit" value="Valider" class="cta btn-primary float-right"    style="margin-left: 30%;margin-right: 30%;margin-top:2%;margin-bottom:5%" >
+
+</form>
+
+</div>

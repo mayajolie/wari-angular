@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PartenairesComponent } from './partenaires/partenaires.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { NavComponent } from './nav/nav.component';
+import { DepotComponent } from './depot/depot.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NavComponent } from './nav/nav.component';
     PartenairesComponent,
     UtilisateurComponent,
     NavComponent,
+    DepotComponent,
   ],
   imports: [
     BrowserModule,

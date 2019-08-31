@@ -15,13 +15,19 @@ export class PartenairesComponent implements OnInit {
 
   ngOnInit() {
      
-    this.dataTable = $(this.table.nativeElement);
-    this.dataTable.DataTable(this.Partenaires);
+  
      this.apiService.getPartenaire()
         .subscribe(
          res=>this.Partenaires=res,
       err=> console.log(err)
       );
+  }
+  compte(data){
+    this.apiService.comptebancaire(data)
+    .subscribe(
+     res => console.log(res),
+     err => console.log(err)
+  );
   }
 }
 

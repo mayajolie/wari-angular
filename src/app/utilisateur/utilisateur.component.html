@@ -19,7 +19,7 @@
                 <div class="col-lg-6" >
                 <div class="form-group">
                   <label>Nom</label>
-                  <input type="text" ngModel name="nom"  placeholder="Nom" class="form-control">
+                  <input type="text" ([ngModel])="Userdata.nom" name="nom"  placeholder="Nom" class="form-control">
                 </div>
                 <div class="form-group">       
                     <label>Prenom</label>
@@ -51,11 +51,11 @@
                   </div>
                 <div class="form-group">       
                   <label>Password</label>
-                  <input type="password" name="plainPassword" ngModel class="form-control form-contol">
+                  <input type="password" name="plainPassword" ngModel class="form-control">
                 </div>
                 <div class="form-group">       
-                    <img [src]="imageUrl"alt="" style="width: 200px;height:200px">
-                    <input type="file" ngModel name="imageName" >
+                    <img [src]="imageUrl"  style="width: 250px;height:200px">
+                    <input type="file" #image accept="images/*" (change)="onFileUpload($event.target.files)" name="imageName" >
                   </div>
               </div>
               <div class="form-group">       
@@ -73,7 +73,7 @@
       </div>
 <div>
 
-  <table #dataTable class="display" style="width:100%">
+  <table  class="display" style="width:100%">
     <thead>
         <tr>
             <th>Id</th>
@@ -95,16 +95,7 @@
       </tr>
     
     </tbody>
-    <tfoot>
-      <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Office</th>
-          <th>Age</th>
-          <th>Start date</th>
-          <th>Salary</th>
-      </tr>
-  </tfoot>
+  
  
 </table>
 </div>
