@@ -37,6 +37,9 @@ export class LoginComponent implements OnInit {
       if (this.isAdminPart()) {
         this.router.navigateByUrl("/utilisateur")  
       }
+      if (this.isCaisier()) {
+        this.router.navigateByUrl("/depot")  
+      }
       console.log(resp);
 
     },

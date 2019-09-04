@@ -46,13 +46,13 @@
               "src/assets"
             ],
            "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss",
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
+              "./node_modules/datatables.net-dt/css/jquery.dataTables.css"
           ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js"
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/datatables.net/js/jquery.dataTables.js"
             ],
             "es5BrowserSupport": true
           },

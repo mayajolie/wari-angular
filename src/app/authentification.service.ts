@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpHeaders  } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from  'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,8 @@ export class AuthentificationService {
   private host="http://localhost:8000/api";
 
 
-  constructor(private http:HttpClient) { }
+
+  constructor(private http:HttpClient,) { }
   login(data){
     return this.http.post("http://localhost:8000/api/login",data,{observe:'response'})
   }
@@ -56,5 +59,6 @@ export class AuthentificationService {
   //   localStorage.removeItem('currentUser');
   //   this.currentUserSubject.next(null);
   // }
+
 }
 

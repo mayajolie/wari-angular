@@ -1,25 +1,51 @@
-<div class="card body" style="margin-left: 35%;margin-right: 35%;margin-top:2%;border-radius:24px 12px 24px 12px">
-  <h2 class="btn-primary float-center" style="text-align: center;border-radius:24px 12px 24px 12px">Authentification</h2>
-<form #f="ngForm" (ngSubmit)="onLogin(f.value )" style="margin-left: 32%">
+<div class="page login-page" style="background-image: url('')">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">
+                    <h1>Authentification</h1>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <div class="col-lg-6 bg-white">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+                  <form #f="ngForm" (ngSubmit)="onLogin(f.value )" class="form-validate">
+                      <h5 *ngIf="success"></h5>
+                    <div class="form-group">
+                      <input id="login-username" type="text" name="username" ngModel required data-msg="Please enter your username" class="input-material">
+                      <label for="login-username" class="label-material">Username</label>
+                    </div>
 
-  <h5 *ngIf="success"></h5>
+                    <div class="form-group">
+                      <input id="login-password" type="password" name="password" ngModel required  data-msg="Please enter your password" class="input-material">
+                      <label for="login-password" class="label-material">Password</label>
+                    </div>
+                    <input id="login" type="submit" class="btn btn-succes" value="connexion"
+                      style="background-color:black;color:white">
+                  
+                  </form>
+                  <div *ngIf="submitted" class="results">
 
-  <label for="login_field" >
-    Username:
-    <input type="text" name="username" ngModel class="form-control form-contol input-block">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights text-center">
+        <p>Design by <a  class="external">Maya Jolie</a>
+          <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        </p>
+      </div>
+    </div>
     
-  </label>
-
-  <label  >
-    Password:
-    <input type="password" name="password" ngModel class="form-control form-contol input-block">
-    
-  </label>
-
-  <input type="submit" value="Se connecter" class="cta btn-primary float-right"    style="margin-left: 30%;margin-right: 30%;margin-top:2%;margin-bottom:5%" >
-
-</form>
-
-<div *ngIf="submitted" class="results" style="margin-top:1%">
-</div>
-</div>
+ 

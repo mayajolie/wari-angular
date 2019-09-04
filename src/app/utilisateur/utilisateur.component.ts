@@ -14,9 +14,10 @@ export class UtilisateurComponent implements OnInit {
   @ViewChild('dataTable') table;
   dataTable: any;
   Utilisateur = [];
+  
   Userdata = {};
   fileToUpload: File = null;
-  imageUrl: string = '/assets/img/img_lights.jpg';
+  imageUrl: string = '/assets/img/maya.jpg';
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
@@ -30,12 +31,10 @@ export class UtilisateurComponent implements OnInit {
   }
 
   onFileUpload(file: FileList) {
-  const im: File =  this.fileToUpload = file.item(0);
-
+    this.fileToUpload = file.item(0);
     const reader = new FileReader();
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
-      console.log(this.imageUrl)
     }
     reader.readAsDataURL(this.fileToUpload);
  }
@@ -47,6 +46,20 @@ export class UtilisateurComponent implements OnInit {
       err => console.log(err)
     )
  }
+ bloquerUser(user){
+  console.log(user);
+ this.apiService.bloquerUsers(user)
+ .subscribe(
+   res => console.log(res),
+   err => console.log(err)
+ )
+}
+editUser(user): void {
+  this.apiService.modifUsers(user)
+  .subscribe(
+    res => console.log(res),
+    err => console.log(err))
    }
-
+   
+  }
 
