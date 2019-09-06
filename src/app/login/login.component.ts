@@ -40,6 +40,9 @@ export class LoginComponent implements OnInit {
       if (this.isCaisier()) {
         this.router.navigateByUrl("/depot")  
       }
+      if (this.isUser()) {
+        this.router.navigateByUrl("/transaction")  
+      }
       console.log(resp);
 
     },

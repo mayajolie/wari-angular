@@ -11,6 +11,7 @@ import { PartenairesComponent } from './partenaires/partenaires.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { NavComponent } from './nav/nav.component';
 import { DepotComponent } from './depot/depot.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DepotComponent } from './depot/depot.component';
     UtilisateurComponent,
     NavComponent,
     DepotComponent,
+    TransactionComponent,
   ],
   imports: [
     BrowserModule,

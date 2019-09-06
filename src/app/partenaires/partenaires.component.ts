@@ -51,5 +51,12 @@ export class PartenairesComponent implements OnInit {
    err => console.log(err)
  )
 }
+transaction(data){
+  this.apiService.transaction(data)
+  .subscribe(
+    res => console.log(res),
+    err => console.log(err)
+  )
+ }
 }
 

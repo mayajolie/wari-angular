@@ -50,7 +50,11 @@ export class UtilisateurComponent implements OnInit {
   console.log(user);
  this.apiService.bloquerUsers(user)
  .subscribe(
-   res => console.log(res),
+   res =>
+   {
+    console.log(res)
+    this.ngOnInit()
+   } ,
    err => console.log(err)
  )
 }

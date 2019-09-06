@@ -19,7 +19,12 @@ export class ApiService {
  private _partenaireUrl = 'http://localhost:8000/api/listPart/3';
  private _depotUrl = 'http://localhost:8000/api/depot';
  private _comptUrl = 'http://localhost:8000/api/comptB';
+ private _listtransUrl = 'http://localhost:8000/api/listtrans';
+ private _transUrl = 'http://localhost:8000/api/trans';
+ private _infoUrl = 'http://localhost:8000/api/finddepot';
 
+
+ 
 
 
  constructor(private http: HttpClient) { }
@@ -53,7 +58,7 @@ export class ApiService {
 }
 fairedepot(depot): Observable<any> {
   var headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
-  return this.http.post<any>(this._depotUrl, depot , { headers : headers});
+  return this.http.post<any>(this._depotUrl,depot, { headers : headers});
  }
  comptebancaire(compt): Observable<any> {
   var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
@@ -77,8 +82,6 @@ fairedepot(depot): Observable<any> {
   formData.append('adres', User.adres);
   formData.append('tel', User.tel);
 
-
-
   console.log(formData)
   return this.http.post(ajout, formData, {headers: header});
  }
@@ -96,5 +99,31 @@ fairedepot(depot): Observable<any> {
   var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
   console.log(headers)
   return this.http.get<any>(this._blokpart+id, {headers:headers});
+ }
+ transaction(data): Observable<any> {
+  var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+  console.log(headers)
+  // const formData: FormData = new FormData();
+  // formData.append('type', typretrait.name);
+  return this.http.post<any>(this._transUrl,data,{headers:headers});
+ }
+ trans(dat): Observable<any> {
+  var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+  console.log(headers)
+  return this.http.post<any>(this._transUrl,dat, {headers:headers});
+ }
+ getTransaction():Observable<any> {
+  var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+   return this.http.get<any>(this._listtransUrl, {headers:headers});
+ }
+ infopart(info):Observable<any> {
+  var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+   return this.http.post<any>(this._infoUrl,info, {headers:headers});
+   
+ }
+ transac(info):Observable<any> {
+  var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+   return this.http.post<any>(this._infoUrl,info, {headers:headers});
+   
  }
 }
