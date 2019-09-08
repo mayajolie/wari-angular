@@ -1,0 +1,48 @@
+
+<div class="container px-3 py-3 gris">
+    <div class="btposition mb-3">
+          <a [routerLink]="['/transaction']"><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary list" >  Nouvelle Transaction
+            </button></a>
+    </div>
+<div class="card" style="width: 100%" id="listrans">
+    <div class="dropdown">
+      <div class="card-header d-flex align-items-center">
+        <div class="liste">
+        <h3 class="h4">Liste des Transaction</h3>
+      </div>
+    </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nom Envoyeur</th>
+                <th>Prenom Envoyeur</th>
+                <th>Telephone Envoyeur</th>
+                <th>Nom Beneficier</th>
+                <th>Prenom Beneficier</th>
+                <th>Telephone Beneficier</th>
+                <th>Montant</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ Transaction.id }}</td>
+                <td>{{ Transaction.nomE }}</td>
+                <td>{{ Transaction.prenomE }}</td>
+                <td>{{ Transaction.telephoneE }}</td>
+                <td>{{ Transaction.nomB }}</td>
+                <td>{{ Transaction.prenomB }}</td>
+                <td>{{ Transaction.telephoneB }}</td>
+                <td>{{ Transaction.montant }}</td>
+                <td>{{ Transaction.dateTrans }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

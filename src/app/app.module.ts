@@ -12,7 +12,11 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { NavComponent } from './nav/nav.component';
 import { DepotComponent } from './depot/depot.component';
 import { TransactionComponent } from './transaction/transaction.component';
-
+import { RouterModule } from '@angular/router';
+import { ListePartComponent } from './liste-part/liste-part.component';
+import { ListUserComponent } from './list-user/list-user.component';
+import { ListransComponent } from './listrans/listrans.component';
+import Swal from 'sweetalert2'
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +26,11 @@ import { TransactionComponent } from './transaction/transaction.component';
     NavComponent,
     DepotComponent,
     TransactionComponent,
+    ListePartComponent,
+    ListUserComponent,
+    ListransComponent,
+ 
+
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,8 @@ import { TransactionComponent } from './transaction/transaction.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

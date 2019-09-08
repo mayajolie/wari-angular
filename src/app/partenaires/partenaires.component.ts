@@ -9,17 +9,12 @@ declare var $;
 export class PartenairesComponent implements OnInit {
   @ViewChild('dataTable') table;
   dataTable: any;
-  Partenaires = [];
   fileToUpload: File = null;
   imageUrl: string ='/assets/imge/img_lights.jpg';
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-     this.apiService.getPartenaire()
-        .subscribe(
-         res=>this.Partenaires=res,
-      err=> console.log(err)
-      );
+    
   }
   compte(data){
     this.apiService.comptebancaire(data)
@@ -57,6 +52,37 @@ transaction(data){
     res => console.log(res),
     err => console.log(err)
   )
+ }
+ ajoutpart(){
+  document.getElementById('ajoutpart').style.display="block";
+  document.getElementById('afilist').style.display="none";
+  document.getElementById('ajoutco').style.display="none";
+
+
+ }
+ ajoutco(){
+  document.getElementById('ajoutpart').style.display="none";
+  document.getElementById('afilist').style.display="none";
+  document.getElementById('ajoutco').style.display="block";
+
+
+
+ }
+ ajout(){
+  document.getElementById('ajout').style.display="block";
+
+ }
+ liste(){
+  document.getElementById('liste').style.display="block";
+
+ }
+ listepart(){
+  document.getElementById('afilist').style.display="block";
+  document.getElementById('ajoutpart').style.display="none";
+  document.getElementById('ajoutco').style.display="none";
+
+
+
  }
 }
 

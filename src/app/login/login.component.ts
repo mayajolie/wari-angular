@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../authentification.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -44,9 +44,22 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("/transaction")  
       }
       console.log(resp);
-
+      
     },
-    err=>console.log(err),
+    err=>{
+      console.log(err)
+      if (err.error.mesg) {
+        Swal.fire(err.error.mesg)
+      }
+      if (err.error.mesge) {
+        Swal.fire(err.error.mesge)
+
+      }
+  
+      
+      
+
+    }
 
     )
     

@@ -46,14 +46,6 @@ choix1(){
   document.getElementById('prenomB').style.display="block";
   document.getElementById('telephoneB').style.display="block";
   document.getElementById('montant').style.display="block";
-
-
-
-
-
-
-
-  
 }
 choix2(){
   document.getElementById('NumeroCINBeneficier').style.display="block";
@@ -67,5 +59,13 @@ choix2(){
   document.getElementById('telephoneB').style.display="none";
   document.getElementById('montant').style.display="none";
 
+}
+transac(){
+  document.getElementById('trans').style.display="block";
+  document.getElementById('listrans').style.display="none";
+}
+listrans(){
+  document.getElementById('trans').style.display="none";
+  document.getElementById('listrans').style.display="block";
 }
 }

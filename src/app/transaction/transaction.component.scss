@@ -4,11 +4,15 @@
 }
 .gris{
     background-color: #eeeeee;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
 }
 .list{
     background-color: #212529;
     color: white;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
 }
 
+.trans{
+    margin-bottom: 10px ;
+    background-color:red;
+}

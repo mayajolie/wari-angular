@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 declare var $;
 
@@ -13,21 +14,17 @@ declare var $;
 export class UtilisateurComponent implements OnInit {
   @ViewChild('dataTable') table;
   dataTable: any;
-  Utilisateur = [];
   
   Userdata = {};
   fileToUpload: File = null;
   imageUrl: string = '/assets/img/maya.jpg';
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,
+              private router:Router) { }
 
   ngOnInit() {
     // this.dataTable = $(this.table.nativeElement);
     // this.dataTable.DataTable();
-    this.apiService.getUser()
-    .subscribe(
-        res => this.Utilisateur = res,
-        err  => console.log(err)
-    );
+   
   }
 
   onFileUpload(file: FileList) {
@@ -42,7 +39,11 @@ export class UtilisateurComponent implements OnInit {
     // console.log(data);
     this.apiService.ajoutUser(data, this.fileToUpload)
     .subscribe(
-      res => console.log(res),
+      res => {
+        this.router.navigateByUrl("/listeUser")  
+        console.log(res)
+
+      },
       err => console.log(err)
     )
  }
@@ -64,6 +65,13 @@ editUser(user): void {
     res => console.log(res),
     err => console.log(err))
    }
-   
+   ajoututi(){
+      document.getElementById('uti').style.display="block";
+      document.getElementById('list').style.display="none"; 
   }
+  listuser(){
+    document.getElementById('uti').style.display="none";
+    document.getElementById('list').style.display="block"; 
+  }
+}
 
