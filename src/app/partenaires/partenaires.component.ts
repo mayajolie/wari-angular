@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 declare var $;
 @Component({
   selector: 'app-partenaires',
@@ -10,8 +11,8 @@ export class PartenairesComponent implements OnInit {
   @ViewChild('dataTable') table;
   dataTable: any;
   fileToUpload: File = null;
-  imageUrl: string ='/assets/imge/img_lights.jpg';
-  constructor(private apiService: ApiService) { }
+  imageUrl: string ='/assets/img/avatar.png';
+  constructor(private apiService: ApiService,private router:Router) { }
 
   ngOnInit() {
     
@@ -35,24 +36,22 @@ export class PartenairesComponent implements OnInit {
     // console.log(data);
     this.apiService.ajoutPart(data, this.fileToUpload)
     .subscribe(
-      res => console.log(res),
+      res => {
+        this.router.navigateByUrl("/listPart")  
+        console.log(res)
+
+      },
       err => console.log(err)
     )
  }
- bloquer(part){
- this.apiService.bloquerPart(part)
- .subscribe(
-   res => console.log(res),
-   err => console.log(err)
- )
-}
-transaction(data){
-  this.apiService.transaction(data)
-  .subscribe(
-    res => console.log(res),
-    err => console.log(err)
-  )
- }
+
+// transaction(data){
+//   this.apiService.transaction(data)
+//   .subscribe(
+//     res => console.log(res),
+//     err => console.log(err)
+//   )
+//  }
  ajoutpart(){
   document.getElementById('ajoutpart').style.display="block";
   document.getElementById('afilist').style.display="none";

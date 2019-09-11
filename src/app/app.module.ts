@@ -16,7 +16,8 @@ import { RouterModule } from '@angular/router';
 import { ListePartComponent } from './liste-part/liste-part.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { ListransComponent } from './listrans/listrans.component';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { TableComponent } from './table/table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import Swal from 'sweetalert2'
     ListePartComponent,
     ListUserComponent,
     ListransComponent,
+    TableComponent,
  
 
   ],

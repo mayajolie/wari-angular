@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
       let jwt:any = resp.body;
       this.authService.aplitoken(jwt);
       if (this.isAdminSystem()) {
-        this.router.navigateByUrl("/partenaire")  
+        this.router.navigateByUrl("/listPart")  
       }
       if (this.isAdminPart()) {
-        this.router.navigateByUrl("/utilisateur")  
+        this.router.navigateByUrl("/listeUser")  
       }
       if (this.isCaisier()) {
         this.router.navigateByUrl("/depot")  
@@ -51,14 +51,13 @@ export class LoginComponent implements OnInit {
       if (err.error.mesg) {
         Swal.fire(err.error.mesg)
       }
+      if (err.error.messge) {
+        Swal.fire(err.error.messge)
+      }
       if (err.error.mesge) {
         Swal.fire(err.error.mesge)
 
       }
-  
-      
-      
-
     }
 
     )

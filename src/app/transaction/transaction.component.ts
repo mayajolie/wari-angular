@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-transaction',
@@ -9,32 +11,29 @@ import { ApiService } from '../api.service';
 export class TransactionComponent implements OnInit {
   Transaction = [];
   typeretrait :any;
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,private router:Router) { }
 
   ngOnInit() {
-    this.apiService.getTransaction()
-    .subscribe(
-        res => this.Transaction = res,
-        err  => console.log(err)
-    );
+  
   }
  
   transaction(data) {
      console.log(data);
     this.apiService.transaction(data)
     .subscribe(
-      res => console.log(res),
-      err => console.log(err)
+      res =>  {this.router.navigateByUrl("/listetrans")
+      console.log(res) 
+    },
+      err =>{
+        console.log(err)
+        if (err.error. MESSAG) {
+          Swal.fire(err.error. MESSAG)
+        }
+       
+      } 
     )
  }
- trans(data) {
-  // console.log(data);
-  this.apiService.trans(data)
-  .subscribe(
-    res => console.log(res),
-    err => console.log(err)
-  )
-}
+
 choix1(){
   document.getElementById('NumeroCINBeneficier').style.display="none";
   document.getElementById('coderetrait').style.display="none";

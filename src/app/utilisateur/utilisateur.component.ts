@@ -17,7 +17,7 @@ export class UtilisateurComponent implements OnInit {
   
   Userdata = {};
   fileToUpload: File = null;
-  imageUrl: string = '/assets/img/maya.jpg';
+  imageUrl: string = '/assets/img/avatar.png';
   constructor(private apiService: ApiService,
               private router:Router) { }
 
@@ -47,18 +47,7 @@ export class UtilisateurComponent implements OnInit {
       err => console.log(err)
     )
  }
- bloquerUser(user){
-  console.log(user);
- this.apiService.bloquerUsers(user)
- .subscribe(
-   res =>
-   {
-    console.log(res)
-    this.ngOnInit()
-   } ,
-   err => console.log(err)
- )
-}
+ 
 editUser(user): void {
   this.apiService.modifUsers(user)
   .subscribe(

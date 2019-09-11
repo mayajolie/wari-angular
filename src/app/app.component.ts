@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from './authentification.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,11 +9,12 @@ import { AuthentificationService } from './authentification.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private authService:AuthentificationService) { }
+  constructor(private authService:AuthentificationService, private router:Router,) { }
 
   ngOnInit() {
+    this.router.navigateByUrl("/login")  
   }
-  title = 'kanuni-transfert';
+  title = 'YOMBAL-transfert';
 
   isAdminSystem(){
     return this.authService.isAdminSystem();
@@ -27,6 +29,9 @@ export class AppComponent implements OnInit {
     return this.authService.isCaisier();
   }
   isAuthentificed(){
-    return this.isAuthentificed() ;
+    return this.authService.isAuthentificed() ;
+  }
+  logout(){
+    this.authService.logout();
   }
 }

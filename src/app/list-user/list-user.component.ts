@@ -20,5 +20,16 @@ export class ListUserComponent implements OnInit {
     );
     
   }
-
+  bloquerUser(user){
+    console.log(user);
+   this.apiService.bloquerUsers(user)
+   .subscribe(
+     res =>
+     {
+      console.log(res)
+      this.ngOnInit()
+     } ,
+     err => console.log(err)
+   )
+  }
 }

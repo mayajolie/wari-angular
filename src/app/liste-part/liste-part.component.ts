@@ -18,5 +18,14 @@ export class ListePartComponent implements OnInit {
   err=> console.log(err)
   );
   }
-
+  bloquer(part){
+    this.apiService.bloquerPart(part)
+    .subscribe( 
+      res =>{
+       console.log(res)
+       this.ngOnInit()
+      } ,
+      err => console.log(err)
+    )
+   }
 }

@@ -54,11 +54,13 @@ export class AuthentificationService {
     return this.roles && (this.isAdminSystem() ||this.isUser()||this.isAdminPart()||this.isCaisier()) ;
   }
   
-  // logout() {
-  //   // remove user from local storage to log user out
-  //   localStorage.removeItem('currentUser');
-  //   this.currentUserSubject.next(null);
-  // }
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('token');
+    this.jwt = undefined;
+    this.username = undefined;
+    this.roles = undefined;
+  }
 
 }
 

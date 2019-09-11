@@ -107,11 +107,7 @@ fairedepot(depot): Observable<any> {
   // formData.append('type', typretrait.name);
   return this.http.post<any>(this._transUrl,data,{headers:headers});
  }
- trans(dat): Observable<any> {
-  var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
-  console.log(headers)
-  return this.http.post<any>(this._transUrl,dat, {headers:headers});
- }
+
  getTransaction():Observable<any> {
   var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
    return this.http.get<any>(this._listtransUrl, {headers:headers});
