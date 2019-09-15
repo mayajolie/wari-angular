@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-depot',
@@ -20,7 +21,11 @@ export class DepotComponent implements OnInit {
       compt => {
         this.compt=compt;
         console.log(this.compt)},
-      err => console.log(err)
+      err => {
+        console.log(err)
+        Swal.fire(err.error.message)
+      
+    }
     )
  }
  infopart(data){

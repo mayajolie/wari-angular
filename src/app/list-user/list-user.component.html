@@ -11,22 +11,22 @@
                     </div>
                     <div class="card-body">
                       <div class="table-responsive">
-                        <table class="table table-striped table-sm">
+                        <table class="table table-striped table-sm" >
                           <thead>
                             <tr>
-                              <th>Id</th>
-                              <th>Username</th>
-                              <th>Nom</th>
-                              <th>Prenom</th>
-                              <th>Adrssee</th>
-                              <th>Telephone</th>
-                              <th>Numero Compte Bancaire</th>
-                              <th>Etat</th>
+                              <th id=""> Username</th>
+                              <th id="">Nom</th>
+                              <th id="">Prenom</th>
+                              <th id="">Adrssee</th>
+                              <th id="">Telephone</th>
+                              <th id="">Numero Compte Bancaire</th>
+                              <th id="">Etat</th>
+                              <th id="">Allouer un Compte</th>
+
                             </tr>
                           </thead>
                           <tbody>
                             <tr *ngFor="let utilisateur of Utilisateur">
-                              <td>{{ utilisateur.id }}</td>
                               <td>{{ utilisateur.username }}</td>
                               <td>{{ utilisateur.nom }}</td>
                               <td>{{ utilisateur.prenom }}</td>
@@ -35,7 +35,16 @@
                               <td>{{ utilisateur.compteBancaire }}</td>
                               <td><button class="btn btn-success" (click)="bloquerUser(utilisateur.id)">{{utilisateur.etat}}</button></td>
                               
-                                <td>  <button class="btn btn-primary" (click)="editUser(utilisateur.id)" style="margin-left: 20px;">Allouer Compte</button></td>
+                              <td ><form #c="ngForm" id="comptb" (ngSubmit)="aloucompte(c.value )">
+                                    <div class="form-group">
+                                        <label>Compte Bancaire</label>
+                                        <select name="compteBancaire" ngModel id="">
+                                          <option *ngFor="let list of listCompt" [value]="list.numCompt">{{list.numCompt}}</option>
+                                        </select>
+                                      </div>
+                                      <button type="submit" class=" btn btn-primary" id="chois" (click)="editUser(utilisateur.id)" style="background-color: #796AEE">Allouer</button>
+                                </form>  
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -46,3 +55,4 @@
               <!-- liste des utlisateur -->
              
       </div>
+   

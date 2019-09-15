@@ -33,15 +33,13 @@
                   <div class="navbar-holder d-flex align-items-center justify-content-between">
                     <!-- Navbar Header-->
                     <div class="navbar-header">
-                        
-                      <!-- Navbar Brand --><a class="navbar-brand d-none d-sm-inline-block">
+                      <!-- Navbar Brand --><a id="toggle-btn" class="navbar-brand d-none d-sm-inline-block">
                         <div class="brand-text d-none d-lg-inline-block"><span>YOMBAL</span><strong>Transfert</strong></div>
                         <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
-                      <!-- Toggle Button--><a id="toggle-btn" class="menu-btn active"><span></span><span></span><span></span></a>
+                      <!-- Toggle Button--><a  [routerLink]="['/#']" class="menu-btn"><span></span><span></span><span></span></a>
                     </div>
                     <!-- Navbar Menu -->
                     <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                    
                       <li class="nav-item"><a (click)="logout()" [routerLink]="['/login']"  class="nav-link logout"> <span class="d-none d-sm-inline">Deconnexion</span><i class="fa fa-sign-out"></i></a></li>
                     </ul>
                   </div>
@@ -64,9 +62,9 @@
             <li *ngIf="isCaisier()"><a [routerLink]="['/depot']"> <i class="icon-grid"></i>Depot</a></li>
             <li *ngIf="isAdminSystem() ||  isAdminPart()"><a [routerLink]="['/utilisateur']"> <i class="icon-padnote"></i>Ajouter utilisateur </a></li>
             <li *ngIf="isAdminSystem()"><a [routerLink]="['/partenaire']"> <i class="icon-padnote"></i>Ajouter Partenaire </a></li>
-            <li *ngIf="isUser()"><a [routerLink]="['/transaction']"> <i class="icon-padnote"></i> Transaction</a></li>
+            <li *ngIf="isUser() || isAdminPart()"><a [routerLink]="['/transaction']"> <i class="icon-padnote"></i> Transaction</a></li>
             <li *ngIf="isAdminSystem()"><a [routerLink]="['/listPart']"><i class="icon-padnote"></i> Liste Partenaire</a></li>
-            <li *ngIf=" isAdminPart()"><a [routerLink]="['/listeUser']"><i class="icon-padnote"></i> Liste utilisateur</a></li>
+            <li *ngIf=" isAdminPart()  || isAdminSystem()"><a [routerLink]="['/listeUser']"><i class="icon-padnote"></i> Liste utilisateur</a></li>
             <li *ngIf="isUser() ||  isAdminPart()"><a [routerLink]="['/listetrans']"><i class="icon-padnote"></i>Liste Transaction</a></li>
             </ul>
           
@@ -81,7 +79,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Wari Transfert &copy; 2019-2020</p>
+                  <p>YOMBAL Transfert &copy; 2019-2020</p>
                 </div>
                 <div class="col-sm-6 text-right">
                   <p>Design by <a  class="external">Maya Jolie</a></p>

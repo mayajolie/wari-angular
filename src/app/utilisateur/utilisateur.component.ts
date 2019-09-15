@@ -14,7 +14,6 @@ declare var $;
 export class UtilisateurComponent implements OnInit {
   @ViewChild('dataTable') table;
   dataTable: any;
-  
   Userdata = {};
   fileToUpload: File = null;
   imageUrl: string = '/assets/img/avatar.png';
@@ -22,9 +21,7 @@ export class UtilisateurComponent implements OnInit {
               private router:Router) { }
 
   ngOnInit() {
-    // this.dataTable = $(this.table.nativeElement);
-    // this.dataTable.DataTable();
-   
+ 
   }
 
   onFileUpload(file: FileList) {
@@ -47,20 +44,6 @@ export class UtilisateurComponent implements OnInit {
       err => console.log(err)
     )
  }
- 
-editUser(user): void {
-  this.apiService.modifUsers(user)
-  .subscribe(
-    res => console.log(res),
-    err => console.log(err))
-   }
-   ajoututi(){
-      document.getElementById('uti').style.display="block";
-      document.getElementById('list').style.display="none"; 
-  }
-  listuser(){
-    document.getElementById('uti').style.display="none";
-    document.getElementById('list').style.display="block"; 
-  }
+
 }
 

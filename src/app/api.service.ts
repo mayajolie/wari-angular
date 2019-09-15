@@ -7,11 +7,11 @@ import { Observable } from  'rxjs';
 })
 export class ApiService {
  // tslint:disable-next-line: variable-name
- private _userUrl = 'http://localhost:8000/api/listeUser/11';
+ private _userUrl = 'http://localhost:8000/api/user';
  private _blokuser = 'http://localhost:8000/api/bloqueDebloqueUser/';
- private _modifuser = 'http://localhost:8000/api/modif/';
+ private _modifuser = 'http://localhost:8000/api/utilisateur/';
  private _blokpart = 'http://localhost:8000/api/bloqueDebloquePart/';
-
+ private _listCompt ='http://localhost:8000/api/liscomp';
 
 
 
@@ -90,10 +90,10 @@ fairedepot(depot): Observable<any> {
   console.log(headers)
   return this.http.get<any>(this._blokuser+id, {headers:headers});
  }
- modifUsers(id): Observable<any> {
+ modifUsers(data,id): Observable<any> {
   var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
   console.log(headers)
-  return this.http.get<any>(this._modifuser+id,  {headers:headers});
+  return this.http.post<any>(this._modifuser+id,data,{headers:headers});
  }
  bloquerPart(id): Observable<any> {
   var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
@@ -120,6 +120,10 @@ fairedepot(depot): Observable<any> {
  transac(info):Observable<any> {
   var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
    return this.http.post<any>(this._infoUrl,info, {headers:headers});
-   
+ }
+ getCompt():Observable<any> {
+  var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+  console.log(headers);
+   return this.http.get<any>(this._listCompt, {headers:headers});
  }
 }

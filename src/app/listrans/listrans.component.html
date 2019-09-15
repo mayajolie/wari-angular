@@ -24,13 +24,14 @@
                 <th>Telephone Beneficier</th>
                 <th>Montant</th>
                 <th>Date D'Envoi</th>
-                <th>Date de Retrait</th>
                 <th>Caisier</th>
+                <th>Date de Retrait</th>
+
 
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let Transaction of Transaction"> 
                 <td>{{ Transaction.nomE }}</td>
                 <td>{{ Transaction.prenomE }}</td>
                 <td>{{ Transaction.telephoneE }}</td>
@@ -39,22 +40,21 @@
                 <td>{{ Transaction.telephoneB }}</td>
                 <td>{{ Transaction.montant }}</td>
                 <td>{{ Transaction.dateTrans }}</td>
-                <td>{{ Transaction.dateretrait}}</td>
                 <td>{{ Transaction.user.username }}</td>
+                <td>{{Transaction.dateretrait}}</td>
               </tr>
-              <tr>   
-                <td>{{ Transaction.transaction.nomE }}</td>
-                <td>{{ Transaction.transaction.prenomE }}</td>
-                <td>{{ Transaction.transaction.telephoneE }}</td>
-                <td>{{ Transaction.transaction.nomB }}</td>
-                <td>{{ Transaction.transaction.prenomB }}</td>
-                <td>{{ Transaction.transaction.telephoneB }}</td>
-                <td>{{ Transaction.transaction.montant }}</td>
-                <td>{{ Transaction.transaction.dateTrans }}</td>
-                <td>{{ Transaction.dateretrait}}</td>
-                <td>{{ Transaction.user.username }}</td>
 
-              </tr>
+                <tr *ngFor="let trans of Transaction.transaction">
+                <td>{{trans.dateretrait}}</td>
+                <td>{{trans.nomE }}</td>
+                <td>{{trans.prenomE }}</td>
+                <td>{{trans.telephoneE }}</td>
+                <td>{{trans.nomB }}</td>
+                <td>{{trans.prenomB }}</td>
+                <td>{{trans.telephoneB }}</td>
+                <td>{{trans.montant }}</td>
+                <td>{{trans.dateTrans }}</td>
+            </tr>
             </tbody>
           </table>
         </div>

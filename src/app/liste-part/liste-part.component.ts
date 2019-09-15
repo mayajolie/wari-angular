@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-liste-part',
@@ -28,4 +29,14 @@ export class ListePartComponent implements OnInit {
       err => console.log(err)
     )
    }
+   compte(data){
+    this.apiService.comptebancaire(data)
+    .subscribe(
+     res => {
+        console.log(res)
+       Swal.fire(res.MESSAGE)
+     },
+     err => console.log(err)
+  );
+  }
 }
